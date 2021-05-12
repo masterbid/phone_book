@@ -7,12 +7,10 @@ const app = express()
 
 const PORT = process.env.PORT || 7000
 
+const connectionString = process.env.DATABASE_URL
+
 const client = new Client({
-    user: process.env.user,
-    host: process.env.host,
-    database: process.env.database,
-    password: process.env.password,
-    port: process.env.dbport,
+    connectionString
   })
 client.connect().then(() => console.log("DB connected")).catch(err => console.error(err))
 
